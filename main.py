@@ -56,7 +56,6 @@ def predict():
 
         marital_st= request.form.get('marital_st')
         marital_st= marital_st_mapping.get(marital_st)
-        print(marital_st)
 
         Lang_inside= request.form.get('Lang_inside')
         Lang_inside= Lang_inside_mapping.get(Lang_inside)
@@ -81,7 +80,6 @@ def predict():
 
         result= [age, nature_of_work, psu, Race, Dwelling, dwelling_type, province_code, metro_code, nationality, RTH,
         marital_st, Lang_inside, Lang_outside, Education, lw_business, lw_work, help_on_household, job_or_business]
-        print(result)
 
         #Get prediction from model
         final_features = [np.array(result)]
@@ -89,12 +87,12 @@ def predict():
 
 
         final = round(prediction[0], 2)
-        print(final)
 
         return render_template('home.html', prediction_text='The result is {}'.format(final))
 
     except ValueError as e:
         return str(e)
+      
 #Instantiate the local host
 if __name__ == "__main__":
     app.run(debug=True)
