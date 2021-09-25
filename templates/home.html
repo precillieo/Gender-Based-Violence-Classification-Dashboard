@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Deployment Tutorial 1</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body style="background: #000;">
+ <div class="login">
+	<h1>Gender Based Violence Dashboard</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+      <input type="text" name="age" placeholder="age" required="required"/>
+      <input type="text" name="nature_of_work" placeholder="nature_of_work" required="required"/>
+    	<input type="text" name="psu" placeholder="psu" required="required" />
+      <input type="text" name="Race" placeholder="Race" required="required" />
+		<input type="text" name="Dwelling" placeholder="Dwelling" required="required" />
+    <input type="text" name="dwelling_type" placeholder="dwelling_type" required="required" />
+    <input type="text" name="province_code" placeholder="province_code" required="required" />
+    <input type="text" name="metro_code" placeholder="metro_code" required="required" />
+    <input type="text" name="nationality" placeholder="nationality" required="required" />
+    <input type="text" name="RTH" placeholder="RTH" required="required" />
+    <input type="text" name="marital_st" placeholder="marital_st" required="required" />
+    <input type="text" name="Lang_inside" placeholder="Lang_inside" required="required" />
+    <input type="text" name="Lang_outside" placeholder="Lang_outside" required="required" />
+    <input type="text" name="Education" placeholder="Education" required="required" />
+    <input type="text" name="lw_work" placeholder="lw_work" required="required" />
+    <input type="text" name="lw_business" placeholder="lw_business" required="required" />
+    <input type="text" name="help_on_household" placeholder="help_on_household" required="required" />
+    <input type="text" name="job_or_business" placeholder="job_or_business" required="required" />
+        <button type="submit" class="button is-fullwidth is-rounded is-success">Predict here</button>
+    </form>
+
+  <br color= '#fff'>
+  <br>
+  {{ prediction_text }}
+
+ </div>
+</body>
+</html>
